@@ -28,22 +28,39 @@ function draw() {
   console.log(triangles);
   fill('red');
   triangle(triangles[25].x1, triangles[25].y1, triangles[25].x2, triangles[25].y2, triangles[25].x3, triangles[25].y3);
-  var x = 0;
-  var y = 0;
+  var x = triangleWidth*8;
+  var y = triangleHeight*2;
+  // ONE
   beginShape(); 
   vertex(x, y);
   vertex(x, y+(6*triangleHeight));
   vertex(x+triangleWidth, y+(6*(triangleHeight))+(triangleHeight/2));
-  vertex(x+triangleWidth, triangleHeight/2);
+  vertex(x+triangleWidth, y+(triangleHeight/2));
   endShape(CLOSE);
-  // One
-// 1. (x, y)
-// 2. (x, (y+6s))
-// 3. ((x+h), (y+6s+1/2))
-// 4. ((x+h), s/2)
 
-  textSize(10);
-  fill(0);
+  // TWO
+
+
+  // One
+  // 1. (x, y)
+  // 2. (x, (y+6s))
+  // 3. ((x+h), (y+6s+1/2))
+  // 4. ((x+h), s/2)
+
+  // Two
+  //  1. (x, y+s)
+  //  2. (x, y+2s)
+  //  3. (2h+x, y+s)
+  //  4. (3h+x, y+s+1/2s)
+  //  5. (x, y+3s)
+  //  6. (x, y+4s)
+  //  7. (2h+x, y+5s)
+  //  8. (4h+x, y+4s)
+  //  9. (4h+x, y+3s)
+  // 10. (2h+x, y+4s)
+
+    textSize(10);
+    fill(0);
   text('4', triangleHeight/2, (triangleWidth/2));
 }
  
