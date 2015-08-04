@@ -1,67 +1,66 @@
 var triangles = [];
-var triangleHeight = 50;   //set triangle height (the side)
-var triangleWidth = Math.ceil(Math.sqrt(Math.pow(triangleHeight, 2)- Math.pow(triangleHeight/2, 2)));
+var s = 50;   //set triangle height (the side)
+var h = Math.ceil(Math.sqrt(Math.pow(s, 2)- Math.pow(s/2, 2)));
 
 var canvasHeight = 500;
 var canvasWidth = 500;
 
-var columns = Math.ceil(canvasWidth/(Math.ceil(triangleWidth)));
-var rows = Math.ceil(canvasHeight/triangleHeight);
+var columns = Math.ceil(canvasWidth/(Math.ceil(h)));
+var rows = Math.ceil(canvasHeight/s);
 
 function setup(){
     canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent('triangles')
-    canvas.background(230);
+    canvas.background(255);
     noStroke();
 }
  
  
 function draw() {
-  for(var i = 0; i <= columns; i++){
-    if (i % 2 == 0){
-      buildTriangles(triangleWidth*i, 0, 1);
-    }
-    else {
-      buildTriangles(triangleWidth*i, (triangleHeight/2)*-1, 1);
-    }
-  }
-  console.log(triangles);
-  fill('red');
-  triangle(triangles[25].x1, triangles[25].y1, triangles[25].x2, triangles[25].y2, triangles[25].x3, triangles[25].y3);
-  var x = triangleWidth*8;
-  var y = triangleHeight*2;
+  
+  fill('black');
+  var x = 0;
+  var y = 0;
   // ONE
   beginShape(); 
   vertex(x, y);
-  vertex(x, y+(6*triangleHeight));
-  vertex(x+triangleWidth, y+(6*(triangleHeight))+(triangleHeight/2));
-  vertex(x+triangleWidth, y+(triangleHeight/2));
+  vertex(x, y+(6*s));
+  vertex(x+h, y+(6*(s))+(s/2));
+  vertex(x+h, y+(s/2));
+  endShape(CLOSE);
+  x = 2*h;
+  y = 0; 
+  // TWO
+  beginShape();
+  vertex(x, y+s);               // 1
+  vertex(x, y+(2*s));           // 2 
+  vertex((2*h)+x, y+s);         // 3
+  vertex((3*h)+x, y+(s+(s/2))); // 4
+  vertex(x, y+(3*s));           // 5
+  vertex(x, y+(4*s));           // 6
+  vertex((2*h)+x, y+(5*s));     // 7
+  vertex((4*h)+x, y+(4*s));     // 8
+  vertex((4*h)+x, y+(3*s));     // 9
+  vertex((2*h)+x, y+(4*s));     // 10
+  vertex(h+x, y+((3*s)+(s/2))); // 11
+  vertex((4*h)+x, y+(s*2));    // 12
+  vertex((4*h)+x, y+s);         // 13
+  vertex((2*h)+x, y);           // 14
   endShape(CLOSE);
 
-  // TWO
+  textSize(10);
+  fill(0);
+  text('4', s/2, (h/2));
 
+  for(var i = 0; i <= columns; i++){
+    if (i % 2 == 0){
+      buildTriangles(h*i, 0, 1);
+    }
+    else {
+      buildTriangles(h*i, (s/2)*-1, 1);
+    }
+  }
 
-  // One
-  // 1. (x, y)
-  // 2. (x, (y+6s))
-  // 3. ((x+h), (y+6s+1/2))
-  // 4. ((x+h), s/2)
-
-  // Two
-  //  1. (x, y+s)
-  //  2. (x, y+2s)
-  //  3. (2h+x, y+s)
-  //  4. (3h+x, y+s+1/2s)
-  //  5. (x, y+3s)
-  //  6. (x, y+4s)
-  //  7. (2h+x, y+5s)
-  //  8. (4h+x, y+4s)
-  //  9. (4h+x, y+3s)
-  // 10. (2h+x, y+4s)
-
-    textSize(10);
-    fill(0);
-  text('4', triangleHeight/2, (triangleWidth/2));
 }
  
 function buildTriangles (_x, _y){
@@ -71,19 +70,18 @@ function buildTriangles (_x, _y){
   
     for (var i = 0; i <= rows; i++){ // Draws the EAST oriented column of triangles
       
-      fill(250);
-      Triangle(x, y, x, y+triangleHeight, x+triangleWidth, y+(triangleHeight/2));
-      triangle(x, y, x, y+triangleHeight, x+triangleWidth, y+(triangleHeight/2));
-      textSize(10);
-      fill(0);
-      text(i, x + (triangleWidth/2), (y+triangleHeight));
-      fill(130); 
-      Triangle(x, y, x, y+triangleHeight, x+(triangleWidth*-1), y+(triangleHeight/2));
-      triangle(x, y, x, y+triangleHeight, x+(triangleWidth*-1), y+(triangleHeight/2));
+      noFill();
+      strokeWeight(1);
+      stroke(130);
+      Triangle(x, y, x, y+s, x+h, y+(s/2));
+      triangle(x, y, x, y+s, x+h, y+(s/2));
+      
+      Triangle(x, y, x, y+s, x+(h*-1), y+(s/2));
+      triangle(x, y, x, y+s, x+(h*-1), y+(s/2));
       // fill(0);  
-      // text(i, x + (triangleWidth/2), (y+triangleHeight));
-      // console.log(x, y, x, y+triangleHeight, x+triangleWidth, y+(triangleHeight/2));
-      y += triangleHeight ;
+      // text(i, x + (h/2), (y+s));
+      // console.log(x, y, x, y+s, x+h, y+(s/2));
+      y += s ;
     }
   noLoop();
 }
