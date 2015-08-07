@@ -49,49 +49,101 @@ function draw() {
   // vertex((2*h)+x, y);           // 14
   // endShape(CLOSE);
 
-  // SIX
-
-  // // THREE
   // beginShape();
-  // vertex(x, y+s);                 // 1
-  // vertex(x, y+(2*s));             // 2
-  // vertex((2*h)+x, y+s);           // 3
-  // vertex((3*h)+x, y+(s+(s/2)));   // 4
-  // vertex(h+x, y+(s*2)+(s/2));     // 5
-  // vertex((3*h)+x, y+(s*3)+(s/2)); // 6
-  // vertex((2*h)+x, y+(4*s));       // 7
-  // vertex(x, y+(3*s));             // 8
-  // vertex(x, y+(4*s));             // 9
-  // vertex((2*h)+x, y+(5*s));       // 10
-  // vertex((4*h)+x, y+(4*s));       // 11
-  // vertex((4*h)+x, y+(3*s));       // 12
+  // vertex(x, y+s);               // 1
+  // vertex(x, y+(2*s));           // 2 
+  // vertex(h+x, y+(2*s+(s/2)));
+  // vertex(x, y+(3*s));
+  // vertex(x, y+(4*s));
+  // vertex((2*h)+x, y+(5*s));
+  // vertex((4*h)+x, y+(4*s));       // 8
+  // vertex((4*h)+x, y+(3*s));       // 9
   // vertex((3*h)+x, y+(s*2)+(s/2)); // 13
   // vertex((4*h)+x, y+(s*2));       // 14
   // vertex((4*h)+x, y+s);           // 15
   // vertex((2*h)+x, y);             // 16
   // endShape(CLOSE);
 
-  // FIVE
+
+  // // SEVEN
   // beginShape();
-  // vertex(x, y+s);               
-  // vertex(x, y+(2*s));            
-  // vertex(h+x, y+(s*2)+(s/2)); 
-  // vertex(h+x, y+s+(s/2)); 
-  // vertex((2*h)+x, y+s);
-  // vertex((4*h)+x, y+(s*2));     
-  // vertex((4*h)+x, y+s);         
-  // vertex((2*h)+x, y);           
+  // vertex(x, y+s);
+  // vertex(x, y+(2*s));             // 2 
+  // vertex((2*h)+x, y+s);           // 3
+  // vertex((3*h)+x, y+(s+(s/2)));   // 4
+  // vertex((3*h)+x, y+(s*2+(s/2))); // 5
+  // vertex(x, y+(4*s));             // 6
+  // vertex(x, y+(5*s));             // 7
+  // vertex((4*h)+x, y+(3*s));       // 8
+  // vertex((4*h)+x, y+s);           // 9
+  // vertex((2*h)+x, y);             // 10
   // endShape(CLOSE);
+
+  // //SIX
+  // beginShape();
+  // vertex(x, y+s);               // 1
+  // vertex(x, y+(4*s));           // 2
+  // vertex((2*h)+x, y+(5*s));     // 3
+  // vertex((4*h)+x, y+(4*s));     // 4
+  // vertex((4*h)+x, y+(3*s));     // 5
+  // vertex((2*h)+x, y+(2*s));     // 6
+  // vertex(h+x, y+(s*2)+(s/2));   // 7
+  // vertex(h+x, y+s+(s/2));       // 8
+  // vertex((2*h)+x, y+s);         // 9 
+  // vertex((4*h)+x, y+(s*2));     // 10
+  // vertex((4*h)+x, y+s);         // 11
+  // vertex((2*h)+x, y);           // 12
+  // endShape(CLOSE);
+  // fill(255);
+  // beginShape();
+  // vertex(h+x, y+(s*3)+(s/2));   // 13
+  // vertex((2*h)+x, y+(4*s));     // 14
+  // vertex((3*h)+x, y+(3*s)+(s/2)); // 15
+  // vertex((2*h)+x, y+(3*s));     // 16
+  // endShape(CLOSE);
+
+
+  // THREE
+  beginShape();
+  vertex(x, y+s);                 // 1
+  vertex(x, y+(2*s));             // 2
+  vertex((2*h)+x, y+s);           // 3
+  vertex((3*h)+x, y+(s+(s/2)));   // 4
+  vertex(h+x, y+(s*2)+(s/2));     // 5
+  vertex((3*h)+x, y+(s*3)+(s/2)); // 6
+  vertex((2*h)+x, y+(4*s));       // 7
+  vertex(x, y+(3*s));             // 8
+  vertex(x, y+(4*s));             // 9
+  vertex((2*h)+x, y+(5*s));       // 10
+  vertex((4*h)+x, y+(4*s));       // 11
+  vertex((4*h)+x, y+(3*s));       // 12
+  vertex((3*h)+x, y+(s*2)+(s/2)); // 13
+  vertex((4*h)+x, y+(s*2));       // 14
+  vertex((4*h)+x, y+s);           // 15
+  vertex((2*h)+x, y);             // 16
+  endShape(CLOSE);
+
+  // FIVE
+  // beginShape();                  // 1
+  // vertex(x, y+s);                // 2
+  // vertex(x, y+(2*s));            // 3
+  // vertex(h+x, y+(s*2)+(s/2));    // 4
+  // vertex(h+x, y+s+(s/2));        // 5
+  // vertex((2*h)+x, y+s);          // 6 
+  // vertex((4*h)+x, y+(s*2));      // 7
+  // vertex((4*h)+x, y+s);          // 8
+  // vertex((2*h)+x, y);            // 9
+  // endShape(CLOSE);     
   // beginShape()
-  // vertex(h+x, y+(s*2)+(s/2));
-  // vertex((3*h)+x, y+(s*3)+(s/2));
-  // vertex((2*h)+x, y+(4*s));
-  // vertex(x, y+(3*s));     
-  // vertex(x, y+(4*s));           
-  // vertex((2*h)+x, y+(5*s));     
-  // vertex((4*h)+x, y+(4*s));     
-  // vertex((4*h)+x, y+(3*s));     
-  // vertex((2*h)+x, y+(2*s));
+  // vertex(h+x, y+(s*2)+(s/2));    // 10
+  // vertex((3*h)+x, y+(s*3)+(s/2));// 11
+  // vertex((2*h)+x, y+(4*s));      // 12
+  // vertex(x, y+(3*s));            // 13
+  // vertex(x, y+(4*s));            // 14
+  // vertex((2*h)+x, y+(5*s));      // 15
+  // vertex((4*h)+x, y+(4*s));      // 16
+  // vertex((4*h)+x, y+(3*s));      // 17
+  // vertex((2*h)+x, y+(2*s));      // 18
   // endShape(CLOSE);
 
   // // FOUR
