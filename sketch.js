@@ -28,6 +28,8 @@ for(var i = 0; i <= columns; i++){
     buildTriangles(h*i, (s/2)*-1);  // Orient the triangles left
   }
 }
+fill('green');
+triangle(triangles[22].x1, triangles[22].y1, triangles[22].x2, triangles[22].y2, triangles[22].x3, triangles[22].y3);
 }
  
 function buildTriangles (_x, _y){
