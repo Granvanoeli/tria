@@ -12,13 +12,61 @@ function setup(){
     canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent('triangles')
     canvas.background(255);
-    noStroke();
+    console.log(second());
 }
  
- 
 function draw() {
+  var d = new Date();
+  var second = d.getSeconds();
+  console.log(second);
   
-fill('black');
+
+  drawGrid();
+  // position 1
+  var s = (second % 10);
+  compose(4, 5, s);
+
+  //position 2
+
+}
+
+function compose(_x, _y, n) {
+  fill('black');
+  switch(n) {
+    case 0:
+      Zero(_x, _y);
+      break;
+    case 1:
+      One(_x, _y);
+      break;
+    case 2:
+      Two(_x, _y);
+      break;
+    case 3:
+      Three(_x, _y);
+      break;
+    case 4:
+      Four(_x, _y);
+      break;
+    case 5:
+      Five(_x, _y);
+      break;
+    case 6:
+      Six(_x, _y);
+      break;
+    case 7:
+      Seven(_x, _y);
+      break;
+    case 8:
+      Eight(_x, _y);
+      break;
+    case 9:
+      Nine(_x, _y);
+      break;
+  }
+}
+
+function drawGrid(){
 
 for(var i = 0; i <= columns; i++){
   if (i % 2 == 0){
@@ -28,8 +76,9 @@ for(var i = 0; i <= columns; i++){
     buildTriangles(h*i, (s/2)*-1);  // Orient the triangles left
   }
 }
-fill('green');
-triangle(triangles[22].x1, triangles[22].y1, triangles[22].x2, triangles[22].y2, triangles[22].x3, triangles[22].y3);
+// fill('green');
+// triangle(triangles[0].x1, triangles[0].y1, triangles[0].x2, triangles[0].y2, triangles[0].x3, triangles[0].y3);
+
 }
  
 function buildTriangles (_x, _y){
@@ -39,14 +88,14 @@ function buildTriangles (_x, _y){
   
     for (var i = 0; i <= rows; i++){ // Draws the EAST oriented column of triangles
       
-      
+      fill('white');
       strokeWeight(1);
       stroke(130);
       Triangle(x, y, x, y+s, x+h, y+(s/2));
-      fill('black');
+      // fill('black');
       triangle(x, y, x, y+s, x+h, y+(s/2));      
       Triangle(x, y, x, y+s, x+(h*-1), y+(s/2));
-      fill('red');
+      // fill('red');
       triangle(x, y, x, y+s, x+(h*-1), y+(s/2));    
       y += s ;
     }
@@ -69,6 +118,7 @@ function Zero (_x, _y){
   var y = _y*s; 
 
   // // ZERO
+  fill('black');
   beginShape();
   vertex(x, y+s);              
   vertex(x, y+(4*s));          
@@ -77,7 +127,7 @@ function Zero (_x, _y){
   vertex((4*h)+x, y+s);        
   vertex((2*h)+x, y);          
   endShape(CLOSE);
-  fill(255);
+  noFill();
   beginShape();
   vertex(h+x, y+s+(s/2)); 
   vertex(h+x, y+(s*3)+(s/2));
@@ -92,6 +142,7 @@ function One (_x, _y){
   var x = _x*h;
   var y = _y*s;
   
+  fill('black');
   // ONE
   beginShape(); 
   vertex(h+x, y+(s/2));
@@ -104,7 +155,8 @@ function One (_x, _y){
 function Two (_x, _y){
   var x = _x*h;
   var y = _y*s; 
- 
+  fill('black')
+
   // TWO
   beginShape();
   vertex(x, y+s);               // 1
@@ -153,6 +205,7 @@ function Four (_x, _y){
   var x = _x*h;
   var y = _y*s; 
 
+  fill('black');
   // // FOUR
   beginShape();
   vertex(x, y);                   // 1
@@ -219,7 +272,7 @@ function Six (_x, _y){
   vertex((4*h)+x, y+s);         // 11
   vertex((2*h)+x, y);           // 12
   endShape(CLOSE);
-  fill(255);
+  noFill();
   beginShape();
   vertex(h+x, y+(s*3)+(s/2));   // 13
   vertex((2*h)+x, y+(4*s));     // 14
@@ -266,7 +319,7 @@ function Eight (_x, _y){
   vertex((4*h)+x, y+s);           // 11
   vertex((2*h)+x, y);             // 12
   endShape(CLOSE);
-  fill(255);
+  noFill();
   quad(h+x, y+((3*s)+(s/2)), 
     (2*h)+x, y+(4*s), 
     (3*h)+x, y+((3*s)+(s/2)), 
@@ -297,7 +350,7 @@ function Nine (_x, _y){
   vertex((4*h)+x, y+s);         // 10
   vertex((2*h)+x, y);           // 11
   endShape(CLOSE);
-  fill(255);
+  fill('white');
   quad(h+x, y+s+(s/2),          // 12
     (2*h)+x, y+(2*s),           // 13
     (3*h)+x, y+(s+(s/2)),       // 14
