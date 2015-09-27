@@ -24,8 +24,8 @@ function draw() {
   drawGrid();
   // position 1
   var s = (second % 10);
-  compose(4, 5, s);
-
+  compose(4, 5, 4);
+  noLoop();
   //position 2
 
 }
@@ -127,15 +127,11 @@ function Zero (_x, _y){
   vertex((4*h)+x, y+s);        
   vertex((2*h)+x, y);          
   endShape(CLOSE);
-  noFill();
-  beginShape();
-  vertex(h+x, y+s+(s/2)); 
-  vertex(h+x, y+(s*3)+(s/2));
-  vertex((2*h)+x, y+(4*s));
-  vertex((3*h)+x, y+(s*3)+(s/2));
-  vertex((3*h)+x, y+s+(s/2));
-  vertex((2*h)+x, y+s);
-  endShape(CLOSE);
+  fill(255);
+  triangle(h+x, y+s+(s/2), (2*h)+x, y+(2*s), (2*h)+x, y+s);
+  triangle((2*h)+x, y+s, (2*h)+x, y+(2*s), (3*h)+x, y+(s+(s/2)));
+  triangle(h+x, y+(s*3)+(s/2), (2*h)+x, y+(4*s), (2*h)+x, y+(3*s));
+  triangle((2*h)+x, y+(3*s), (2*h)+x, y+(4*s), (3*h)+x, y+(3*s)+(s/2));
 };
 
 function One (_x, _y){
@@ -272,13 +268,9 @@ function Six (_x, _y){
   vertex((4*h)+x, y+s);         // 11
   vertex((2*h)+x, y);           // 12
   endShape(CLOSE);
-  noFill();
-  beginShape();
-  vertex(h+x, y+(s*3)+(s/2));   // 13
-  vertex((2*h)+x, y+(4*s));     // 14
-  vertex((3*h)+x, y+(3*s)+(s/2)); // 15
-  vertex((2*h)+x, y+(3*s));     // 16
-  endShape(CLOSE);
+  fill(255)
+  triangle(h+x, y+(s*3)+(s/2), (2*h)+x, y+(4*s), (2*h)+x, y+(3*s));
+  triangle((2*h)+x, y+(3*s), (2*h)+x, y+(4*s), (3*h)+x, y+(3*s)+(s/2))
 };
 
 function Seven (_x, _y){
@@ -319,15 +311,11 @@ function Eight (_x, _y){
   vertex((4*h)+x, y+s);           // 11
   vertex((2*h)+x, y);             // 12
   endShape(CLOSE);
-  noFill();
-  quad(h+x, y+((3*s)+(s/2)), 
-    (2*h)+x, y+(4*s), 
-    (3*h)+x, y+((3*s)+(s/2)), 
-    (2*h)+x, y+(s*3));
-  quad(h+x, y+s+(s/2), 
-    (2*h)+x, y+(2*s), 
-    (3*h)+x, y+(s+(s/2)), 
-    (2*h)+x, y+s);
+  fill(255);
+  triangle(h+x, y+s+(s/2), (2*h)+x, y+(2*s), (2*h)+x, y+s);
+  triangle((2*h)+x, y+s, (2*h)+x, y+(2*s), (3*h)+x, y+(s+(s/2)));
+  triangle(h+x, y+(s*3)+(s/2), (2*h)+x, y+(4*s), (2*h)+x, y+(3*s));
+  triangle((2*h)+x, y+(3*s), (2*h)+x, y+(4*s), (3*h)+x, y+(3*s)+(s/2));
 };
 
 function Nine (_x, _y){
@@ -350,9 +338,7 @@ function Nine (_x, _y){
   vertex((4*h)+x, y+s);         // 10
   vertex((2*h)+x, y);           // 11
   endShape(CLOSE);
-  fill('white');
-  quad(h+x, y+s+(s/2),          // 12
-    (2*h)+x, y+(2*s),           // 13
-    (3*h)+x, y+(s+(s/2)),       // 14
-    (2*h)+x, y+s);              // 15
+  fill(255);
+  triangle(h+x, y+s+(s/2), (2*h)+x, y+(2*s), (2*h)+x, y+s);
+  triangle((2*h)+x, y+s, (2*h)+x, y+(2*s), (3*h)+x, y+(s+(s/2)));
 }
