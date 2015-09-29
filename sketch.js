@@ -17,17 +17,26 @@ function setup(){
  
 function draw() {
   var d = new Date();
-  var second = d.getSeconds();
-  console.log(second);
+  var seconds = d.getSeconds();
+  var minutes = d.getMinutes();
+  var hours = d.getHours();
+  console.log(seconds);
   
-
   drawGrid();
   // position 1
-  var s = (second % 10);
-  compose(4, 5, 4);
-  noLoop();
-  //position 2
-
+  var sTens = (seconds %  100 / 10 | 0);
+  var sOnes = (seconds % 10);
+  var mTens = (minutes %  100 / 10 | 0);
+  var mOnes = (minutes %  10);
+  var hTens = (hours %  100 / 10 | 0);
+  var hOnes = (hours % 10)
+  console.log(s);
+  compose(26, 5, sTens);
+  compose(32, 5, sOnes);  //position 2
+  compose(20, 5, mOnes);
+  compose(14, 5, mTens);
+  compose(2, 5, hTens);
+  compose(8, 5, hOnes);
 }
 
 function compose(_x, _y, n) {
@@ -128,10 +137,31 @@ function Zero (_x, _y){
   vertex((2*h)+x, y);          
   endShape(CLOSE);
   fill(255);
-  triangle(h+x, y+s+(s/2), (2*h)+x, y+(2*s), (2*h)+x, y+s);
-  triangle((2*h)+x, y+s, (2*h)+x, y+(2*s), (3*h)+x, y+(s+(s/2)));
-  triangle(h+x, y+(s*3)+(s/2), (2*h)+x, y+(4*s), (2*h)+x, y+(3*s));
-  triangle((2*h)+x, y+(3*s), (2*h)+x, y+(4*s), (3*h)+x, y+(3*s)+(s/2));
+  
+  beginShape();
+  vertex(h+x, y+s+(s/2));           // 7
+  vertex(h+x, y+((3*s)+(s/2)));     // 8
+  vertex((2*h)+x, y+(4*s));         // 9
+  vertex((3*h)+x, y+((3*s)+(s/2))); // 10
+  vertex((3*h)+x, y+s+(s/2));       // 11
+  vertex((2*h)+x, y+s);             // 12
+  endShape(CLOSE);
+  strokeWeight(1);
+  stroke(130);
+  line(h+x, y+s+(s/2), (3*h)+x, y+((2*s)+(s/2)));       // 11)
+  line(h+x, y+((2*s)+(s/2)), (3*h)+x, y+((3*s)+(s/2)));
+  line((3*h)+x, y+s+(s/2), h+x, y+((2*s)+(s/2)));
+  line((3*h)+x, y+((2*s)+(s/2)), h+x, y+((3*s)+(s/2)));
+  line((2*h)+x, y+s, (2*h)+x, y+(4*s));
+  noFill();
+  beginShape();
+  vertex(h+x, y+s+(s/2)); 
+  vertex(h+x, y+(s*3)+(s/2));
+  vertex((2*h)+x, y+(4*s));
+  vertex((3*h)+x, y+(s*3)+(s/2));
+  vertex((3*h)+x, y+s+(s/2));
+  vertex((2*h)+x, y+s);
+  endShape(CLOSE);
 };
 
 function One (_x, _y){
